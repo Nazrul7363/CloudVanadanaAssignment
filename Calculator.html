@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            background-color: #495250;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            height: 500px;
+            width: 400px;
+            background-color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-areas: "output output output AC" "nine eight seven add" "six five four sub" "three two one divi"
+                "decimal zero equals mul";
+            text-align: center;
+            color: white;
+            font: small-caps 24px/1 sans-serif;
+        }
+
+        .output {
+            grid-area: output;
+        
+            width: 88%;
+            position: relative;
+            height: 80px;
+            top: 5px;
+            text-align: right;
+            padding: 3px 6px;
+            outline: none;
+            font-size: 40px;
+           
+            display: flex;
+            align-items: center;
+            margin: auto;
+            
+            color: black;
+        }
+
+        .allclear {
+            grid-area: AC;
+            background-color: #14938a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nine {
+            grid-area: nine;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .eight {
+            grid-area: eight;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .seven {
+            grid-area: seven;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .add {
+            grid-area: add;
+            background-color: #787474;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .six {
+            grid-area: six;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .five {
+            grid-area: five;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .four {
+            grid-area: four;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sub {
+            grid-area: sub;
+            background-color: #787474;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .three {
+            grid-area: three;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .two {
+            grid-area: two;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .one {
+            grid-area: one;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .divi {
+            grid-area: divi;
+            background-color: #787474;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .decimal {
+            grid-area: decimal;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .zero {
+            grid-area: zero;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .equals {
+            grid-area: equals;
+            background-color: black;display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        
+
+        .mul {
+            grid-area: mul;
+            background-color: #787474;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+    <title>Calculator</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="output" id='res'>
+
+        </div>
+        <div class="allclear" onclick="Clear()">AC</div>
+
+        <div class="nine" onclick="Solve('9')">9</div>
+        <div class="eight" onclick="Solve('8')">8</div>
+        <div class="seven" onclick="Solve('7')">7</div>
+        <div class="add" onclick="Solve('+')">+</div>
+        <div class="one" onclick="Solve('1')">1</div>
+        <div class="two" onclick="Solve('2')">2</div>
+        <div class="three" onclick="Solve('3')">3</div>
+        <div class="four" onclick="Solve('4')">4</div>
+        <div class="five" onclick="Solve('5')">5</div>
+        <div class="six" onclick="Solve('6')">6</div>
+        <div class="zero" onclick="Solve('0')">0</div>
+        <div class="equals" onclick="Result()">=</div>
+        <div class="decimal" onclick="Solve('.')">.</div>
+        <div class="sub" onclick="Solve('-')">-</div>
+        <div class="divi" onclick="Solve('/')">÷</div>
+        <div class="mul" onclick="Solve('*')">x</div>
+    </div>
+
+    <script>
+        function Solve(val) {
+            var v = document.getElementById('res');
+            v.innerHTML += val;
+        }
+
+        function Result() {
+            var num1 = document.getElementById('res').innerHTML;
+            var num2 = eval(num1);
+            document.getElementById('res').innerHTML = num2;
+        }
+
+        function Clear() {
+            var inp = document.getElementById('res');
+            inp.innerHTML = '';
+        }
+    </script>
+
+</body>
+
+</html>
